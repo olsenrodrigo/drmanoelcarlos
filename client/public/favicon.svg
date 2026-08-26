@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Dr. Manoel Carlos — Oncologia Clínica">
+  <rect width="64" height="64" rx="10" fill="#0D2730"/>
+  <path d="M20.98 46.11 A17.9 17.9 0 1 1 43.02 46.11"
+        fill="none" stroke="#8BC5CD" stroke-width="5.4" stroke-linecap="round"/>
+  <circle cx="43.02" cy="46.11" r="6.7" fill="#8BC5CD"/>
+</svg>
