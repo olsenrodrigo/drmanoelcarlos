@@ -110,25 +110,26 @@ passados só ao vivo, a quem pedir, para evitar problema jurídico com a rede
 Américas. Vale para a copy, o `geo.ts`, o JSON-LD e o `llms.txt` — não
 reintroduzir. O site mostra os hospitais (`site.hospitais`) com endereço e
 telefone de agendamento, e o WhatsApp (11) 99202-8745 como "demais
-agendamentos".
+agendamentos". As fotos do Instituto Emunah aparecem em `/onde-atendo` e nas
+páginas do Jardim das Perdizes e da Barra Funda.
 
 ## Pendências (dados que faltam)
 
-1. **Hospital Emunah** — veio sem endereço e sem telefone. Hoje aparece só com o
-   bairro (Jardim das Perdizes) e agenda pelo WhatsApp de demais agendamentos.
-   Ao receber: preencher `rua`/`cep`/`telefone` em `site.hospitais`.
-2. **Fotos do Emunah** — o cliente pediu fotos no Emunah no lugar das do
-   consultório particular; os arquivos ainda não chegaram. As seções já esperam
-   `src`/`alt`/`width`/`height` em `site.foto*`.
-3. **Redes sociais** — o briefing pede redes em destaque. Só a página do Facebook
+1. **Instituto Emunah** — é o EMNH Instituto de Medicina (clínica, não hospital,
+   apesar de a copy dizer "Hospital Emunah"). Endereço, telefone e fotos vieram
+   do site do próprio instituto (`~/Sites/EMUNAH`, emnhinstituto.com.br); CEP
+   05036-040 conferido no ViaCEP. Se o cliente preferir que o Emunah agende
+   pelo WhatsApp dele em vez da central do instituto, trocar `telefone` em
+   `site.hospitais`.
+2. **Redes sociais** — o briefing pede redes em destaque. Só a página do Facebook
    foi encontrada em fonte pública. Instagram e LinkedIn ficam vazios em
    `site.social`; o rodapé e a página de contato já renderizam o que for
    preenchido.
-4. **Fotos** — existe um único retrato. `site.foto` (inteiro) e `site.fotoFechada`
+3. **Fotos** — existe um único retrato. `site.foto` (inteiro) e `site.fotoFechada`
    (mesmo arquivo, enquadramento fechado) cobrem o site hoje.
    *O arquivo original tinha a arte "Minha Trajetória", uma faixa diagonal e o
    logotipo sobrepostos; o fundo foi reconstruído para liberar o uso.*
-5. **Marca** — o logotipo do Dr. Manoel (monograma "MC" com estetoscópio +
+4. **Marca** — o logotipo do Dr. Manoel (monograma "MC" com estetoscópio +
    assinatura) só existe em baixa resolução, embutido na foto. O site usa um
    símbolo próprio em SVG (`components/Brand.tsx`), com a paleta tirada das
    cores medidas nesse logotipo. Quando chegar o vetor oficial, trocar só o

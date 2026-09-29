@@ -98,7 +98,7 @@ export const llmsTxt = [
   "",
   ...site.hospitais.map((h) =>
     h.rua
-      ? `- ${h.nome} — ${h.rua}, ${h.bairro}, ${site.cidade}/${site.estado}, CEP ${h.cep}. Agendamento: ${h.telefone}`
+      ? `- ${h.nome}${h.nomeOficial ? ` (${h.nomeOficial})` : ""} — ${h.rua}, ${h.bairro}, ${site.cidade}/${site.estado}, CEP ${h.cep}. Agendamento: ${h.telefone}`
       : `- ${h.nome} — ${h.bairro}, ${site.cidade}/${site.estado}. Agendamento: WhatsApp ${site.whatsappDisplay}`,
   ),
   `- ${site.whatsappRotulo}: WhatsApp ${site.whatsappDisplay}`,
@@ -139,7 +139,7 @@ export const llmsTxt = [
   })(),
   "## Observações",
   "",
-  "- O atendimento por convênio acontece nos hospitais parceiros.",
+  "- O atendimento por convênio acontece nas unidades parceiras (três hospitais e o Instituto Emunah).",
   "- Não há teleconsulta: todo o atendimento é presencial.",
   "- A primeira consulta dura cerca de 1 hora; os retornos, cerca de 30 minutos.",
   "- Este site é informativo e não substitui consulta médica; nenhuma conduta é",

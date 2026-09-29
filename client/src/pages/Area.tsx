@@ -1,6 +1,13 @@
 import { Link } from "wouter";
 import { Pagina } from "@/components/Layout";
-import { CtaFinal, ListaHospitais, SecaoContato, Surge, TopoPagina } from "@/components/Secoes";
+import {
+  CtaFinal,
+  GaleriaEmunah,
+  ListaHospitais,
+  SecaoContato,
+  Surge,
+  TopoPagina,
+} from "@/components/Secoes";
 import { FichaMedico, PerguntasDaPagina, RespostaDireta, SecoesGeo } from "@/components/Geo";
 import { IconeSeta } from "@/components/Icones";
 import type { Meta } from "@/content/pages";
@@ -25,6 +32,10 @@ export default function PaginaArea({ dados }: { dados: Area }) {
     dados.path === saoPaulo.path
       ? [{ label: dados.nav }]
       : [{ href: saoPaulo.path, label: "Oncologista em São Paulo" }, { label: dados.nav }];
+  // O Instituto Emunah fica no Jardim das Perdizes: as fotos entram nas duas
+  // páginas da região, e os fundos seguintes invertem para manter a alternância.
+  const comEmunah = dados.path === perdizes.path || dados.path === barraFunda.path;
+  const [fundoA, fundoB] = comEmunah ? ["fundo-branco", "fundo-areia"] : ["fundo-areia", "fundo-branco"];
 
   return (
     <Pagina>
@@ -38,15 +49,17 @@ export default function PaginaArea({ dados }: { dados: Area }) {
         <div className="wrap">
           <Surge>
             <p className="sobrelinha">Onde o atendimento acontece</p>
-            <h2 style={{ marginBottom: 44 }}>Hospitais onde atendo</h2>
+            <h2 style={{ marginBottom: 44 }}>Onde atendo</h2>
           </Surge>
           <ListaHospitais />
         </div>
       </section>
 
-      <PerguntasDaPagina path={dados.path} fundo="fundo-areia" />
+      {comEmunah && <GaleriaEmunah fundo="fundo-areia" />}
 
-      <section className="secao fundo-branco">
+      <PerguntasDaPagina path={dados.path} fundo={fundoA} />
+
+      <section className={`secao ${fundoB}`}>
         <div className="wrap-estreito">
           <Surge>
             <p className="sobrelinha">Em resumo</p>

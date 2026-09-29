@@ -1,8 +1,16 @@
 import retrato from "@/assets/images/dr-manoel-carlos.jpg";
 import retratoFechado from "@/assets/images/dr-manoel-carlos-retrato.jpg";
+import emunahRecepcao from "@/assets/images/emunah-recepcao.jpg";
+import emunahEspera from "@/assets/images/emunah-sala-de-espera.jpg";
+import emunahConsultorio1 from "@/assets/images/emunah-consultorio-1.jpg";
+import emunahConsultorio2 from "@/assets/images/emunah-consultorio-2.jpg";
 
 export type Hospital = {
   nome: string;
+  /** Razão/nome oficial, quando difere do nome pelo qual o local é conhecido. */
+  nomeOficial?: string;
+  /** Tipo schema.org: o Emunah é clínica, não hospital. */
+  tipo: "Hospital" | "MedicalClinic";
   rua: string;
   bairro: string;
   cep: string;
@@ -59,13 +67,15 @@ export const site = {
    */
 
   /**
-   * Hospitais onde o Dr. Manoel atende, na ordem da copy, com endereço e
-   * telefone de agendamento enviados pelo cliente. O Emunah não veio com
-   * endereço nem telefone: agenda pelo WhatsApp de demais agendamentos.
+   * Locais onde o Dr. Manoel atende, na ordem da copy, com endereço e
+   * telefone de agendamento enviados pelo cliente. O Emunah é o EMNH Instituto
+   * de Medicina (clínica, não hospital): endereço e telefone tirados do site do
+   * próprio instituto (emnhinstituto.com.br); CEP conferido no ViaCEP.
    */
   hospitais: [
     {
       nome: "Hospital Nove de Julho",
+      tipo: "Hospital",
       rua: "Rua Peixoto Gomide, 545",
       bairro: "Cerqueira César",
       cep: "01409-002",
@@ -73,6 +83,7 @@ export const site = {
     },
     {
       nome: "Hospital Samaritano Higienópolis",
+      tipo: "Hospital",
       rua: "Rua Conselheiro Brotero, 1486",
       bairro: "Higienópolis",
       cep: "01232-010",
@@ -80,17 +91,20 @@ export const site = {
     },
     {
       nome: "Hospital Leforte Liberdade",
+      tipo: "Hospital",
       rua: "Rua Barão de Iguape, 209",
       bairro: "Liberdade",
       cep: "01507-000",
       telefone: "(11) 91306-4455",
     },
     {
-      nome: "Hospital Emunah",
-      rua: "",
+      nome: "Instituto Emunah",
+      nomeOficial: "EMNH Instituto de Medicina",
+      tipo: "MedicalClinic",
+      rua: "Av. Marquês de São Vicente, 2219 — Conj. 316",
       bairro: "Jardim das Perdizes",
-      cep: "",
-      telefone: "",
+      cep: "05036-040",
+      telefone: "(11) 3615-2474",
     },
   ] as Hospital[],
 
@@ -122,13 +136,24 @@ export const site = {
     width: 750,
     height: 937,
   },
+
+  /**
+   * Fotos do Instituto Emunah — tiradas do site do próprio instituto, a
+   * pedido do cliente, no lugar das fotos de consultório particular.
+   */
+  fotosEmunah: [
+    { src: emunahRecepcao, alt: "Recepção do Instituto Emunah, no Jardim das Perdizes", width: 742, height: 495 },
+    { src: emunahEspera, alt: "Sala de espera do Instituto Emunah, com poltronas e jardim vertical", width: 1280, height: 860 },
+    { src: emunahConsultorio1, alt: "Consultório do Instituto Emunah", width: 1252, height: 877 },
+    { src: emunahConsultorio2, alt: "Consultório do Instituto Emunah com mesa de atendimento", width: 1280, height: 854 },
+  ],
 } as const;
 
 export const telUrl = (telefone: string) => `tel:+55${telefone.replace(/\D/g, "")}`;
 
 export const mapsUrl = (h: Hospital) =>
   `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-    `${h.nome}, ${h.rua} - ${h.bairro}, ${site.cidade} - ${site.estado}, ${h.cep}`,
+    `${h.nomeOficial ?? h.nome}, ${h.rua} - ${h.bairro}, ${site.cidade} - ${site.estado}, ${h.cep}`,
   )}`;
 
 export const whatsappUrl = (mensagem: string) =>

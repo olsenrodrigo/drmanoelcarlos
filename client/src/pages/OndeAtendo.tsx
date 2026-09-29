@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { Pagina } from "@/components/Layout";
-import { CtaFinal, ListaHospitais, Surge, TopoPagina } from "@/components/Secoes";
+import { CtaFinal, GaleriaEmunah, ListaHospitais, Surge, TopoPagina } from "@/components/Secoes";
 import { PerguntasDaPagina, RespostaDireta, SecoesGeo } from "@/components/Geo";
 import { IconeSeta } from "@/components/Icones";
 import { agendarUrl, site } from "@/content/site";
@@ -36,7 +36,9 @@ export default function OndeAtendo() {
         </div>
       </section>
 
-      <section className="secao fundo-branco">
+      <GaleriaEmunah fundo="fundo-branco" />
+
+      <section className="secao fundo-areia">
         <div className="wrap-estreito">
           <Surge>
             <div className="bloco-destaque">
@@ -58,11 +60,11 @@ export default function OndeAtendo() {
         </div>
       </section>
 
-      <SecoesGeo path={consultorio.path} fundo="fundo-areia" />
+      <SecoesGeo path={consultorio.path} fundo="fundo-branco" />
 
-      <PerguntasDaPagina path={consultorio.path} fundo="fundo-branco" />
+      <PerguntasDaPagina path={consultorio.path} fundo="fundo-areia" />
 
-      <section className="secao-curta fundo-areia">
+      <section className="secao-curta fundo-branco">
         <div className="wrap-estreito centrado">
           <p className="sobrelinha" style={{ justifyContent: "center" }}>
             Atendimento por região

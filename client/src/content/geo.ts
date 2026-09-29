@@ -55,7 +55,7 @@ export const fichaMedico = [
   { rotulo: "Formação", valor: "Medicina pela FMRP-USP; residências em Clínica Médica (HC-FMRP-USP) e Oncologia Clínica (ICESP-USP)" },
   { rotulo: "Atuação", valor: "Oncologista clínico titular do Grupo Américas / Oncologia Américas (rede DASA)" },
   { rotulo: "Onde atende", valor: site.hospitais.map((h) => h.nome).join(", ") },
-  { rotulo: "Convênio", valor: "Atendimento por convênio nos hospitais parceiros" },
+  { rotulo: "Convênio", valor: "Atendimento por convênio nas unidades parceiras" },
   { rotulo: "Primeira consulta", valor: "Cerca de 1 hora" },
   { rotulo: "Retornos", valor: "Cerca de 30 minutos" },
   { rotulo: "Teleconsulta", valor: "Não disponível — todo o atendimento é presencial" },
@@ -72,7 +72,7 @@ export const fichaMedico = [
 
 const HOME: BlocoGeo = {
   resumo:
-    "O Dr. Manoel Carlos (Manoel Carlos Leonardi de Azevedo Souza, CRM-SP 139.361, RQE 39585 e 103468) é oncologista clínico em São Paulo. Atende nos hospitais Nove de Julho, Samaritano Higienópolis, Leforte Liberdade e Emunah. A primeira consulta dura cerca de uma hora e termina com um plano de tratamento explicado em linguagem clara.",
+    "O Dr. Manoel Carlos (Manoel Carlos Leonardi de Azevedo Souza, CRM-SP 139.361, RQE 39585 e 103468) é oncologista clínico em São Paulo. Atende nos hospitais Nove de Julho, Samaritano Higienópolis e Leforte Liberdade e no Instituto Emunah. A primeira consulta dura cerca de uma hora e termina com um plano de tratamento explicado em linguagem clara.",
   secoes: [
     {
       titulo: "O que o Dr. Manoel Carlos faz",
@@ -94,7 +94,7 @@ const HOME: BlocoGeo = {
         "A primeira consulta é longa de propósito. Ela existe para que a história clínica seja ouvida inteira, os exames sejam revistos com calma e as opções de tratamento sejam apresentadas com tempo para perguntas — não para entregar uma conduta pronta em quinze minutos.",
       ],
       lista: [
-        "Agendamento pelo telefone do hospital escolhido ou pelo WhatsApp de demais agendamentos",
+        "Agendamento pelo telefone da unidade escolhida ou pelo WhatsApp de demais agendamentos",
         "Consulta inicial de cerca de 1 hora, com revisão do histórico e de todos os exames trazidos",
         "Apresentação das opções de tratamento, com riscos, benefícios e expectativas explicados",
         "Plano construído em conjunto — a decisão sobre o próximo passo é compartilhada",
@@ -120,7 +120,7 @@ const HOME: BlocoGeo = {
     {
       pergunta: "Onde o Dr. Manoel Carlos atende em São Paulo?",
       resposta:
-        "O Dr. Manoel Carlos atende nos hospitais Nove de Julho (Rua Peixoto Gomide, 545, Cerqueira César), Samaritano Higienópolis (Rua Conselheiro Brotero, 1486), Leforte Liberdade (Rua Barão de Iguape, 209) e Emunah, no Jardim das Perdizes. O agendamento é feito pelo telefone de cada hospital ou, para os demais agendamentos, pelo WhatsApp (11) 99202-8745.",
+        "O Dr. Manoel Carlos atende nos hospitais Nove de Julho (Rua Peixoto Gomide, 545, Cerqueira César), Samaritano Higienópolis (Rua Conselheiro Brotero, 1486), Leforte Liberdade (Rua Barão de Iguape, 209) e no Instituto Emunah (Av. Marquês de São Vicente, 2219, Jardim das Perdizes). O agendamento é feito pelo telefone de cada unidade ou, para os demais agendamentos, pelo WhatsApp (11) 99202-8745.",
     },
     {
       pergunta: "Qual a formação do Dr. Manoel Carlos?",
@@ -130,7 +130,7 @@ const HOME: BlocoGeo = {
     {
       pergunta: "Preciso de encaminhamento para marcar a primeira consulta?",
       resposta:
-        "Não. A consulta pode ser marcada diretamente, pelo telefone do hospital ou pelo WhatsApp, com ou sem encaminhamento de outro médico. Se já houver relatório de um profissional que acompanhou o caso, vale levar — ele acelera a revisão do histórico.",
+        "Não. A consulta pode ser marcada diretamente, pelo telefone da unidade ou pelo WhatsApp, com ou sem encaminhamento de outro médico. Se já houver relatório de um profissional que acompanhou o caso, vale levar — ele acelera a revisão do histórico.",
     },
     {
       pergunta: "O Dr. Manoel Carlos atende quem ainda não tem diagnóstico confirmado?",
@@ -353,7 +353,7 @@ const SEGUNDA_OPINIAO: BlocoGeo = {
     {
       pergunta: "A segunda opinião é feita pelo convênio?",
       resposta:
-        "Pelo convênio, a avaliação pode ser feita nos hospitais parceiros — Nove de Julho, Samaritano Higienópolis, Leforte Liberdade e Emunah. A cobertura do plano é confirmada no agendamento, com o hospital escolhido.",
+        "Pelo convênio, a avaliação pode ser feita nos hospitais Nove de Julho, Samaritano Higienópolis e Leforte Liberdade ou no Instituto Emunah. A cobertura do plano é confirmada no agendamento, com a unidade escolhida.",
     },
   ],
 };
@@ -362,12 +362,12 @@ const SEGUNDA_OPINIAO: BlocoGeo = {
 
 const ONDE_ATENDO: BlocoGeo = {
   resumo:
-    "O Dr. Manoel Carlos atende em quatro hospitais de São Paulo: Hospital Nove de Julho (Rua Peixoto Gomide, 545 — Cerqueira César; agendamento (11) 97614-9750), Hospital Samaritano Higienópolis (Rua Conselheiro Brotero, 1486; (11) 3821-5701), Hospital Leforte Liberdade (Rua Barão de Iguape, 209; (11) 91306-4455) e Hospital Emunah, no Jardim das Perdizes. Demais agendamentos pelo WhatsApp (11) 99202-8745. Todo o atendimento é presencial: não há teleconsulta.",
+    "O Dr. Manoel Carlos atende em quatro locais de São Paulo: Hospital Nove de Julho (Rua Peixoto Gomide, 545 — Cerqueira César; agendamento (11) 97614-9750), Hospital Samaritano Higienópolis (Rua Conselheiro Brotero, 1486; (11) 3821-5701), Hospital Leforte Liberdade (Rua Barão de Iguape, 209; (11) 91306-4455) e Instituto Emunah — EMNH Instituto de Medicina (Av. Marquês de São Vicente, 2219, conj. 316 — Jardim das Perdizes; (11) 3615-2474). Demais agendamentos pelo WhatsApp (11) 99202-8745. Todo o atendimento é presencial: não há teleconsulta.",
   secoes: [
     {
-      titulo: "Como escolher o hospital",
+      titulo: "Como escolher a unidade",
       paragrafos: [
-        "A conduta médica é a mesma em qualquer uma das unidades. O que costuma decidir é o convênio — cada hospital tem a própria lista de planos aceitos — e a distância de casa, que pesa mais do que parece quando o tratamento exige retornos frequentes.",
+        "A conduta médica é a mesma em qualquer uma das unidades. O que costuma decidir é o convênio — cada unidade tem a própria lista de planos aceitos — e a distância de casa, que pesa mais do que parece quando o tratamento exige retornos frequentes.",
         "Na dúvida, o WhatsApp de demais agendamentos ajuda a indicar a unidade que faz mais sentido para o seu caso.",
       ],
       linkPara: { path: "/perguntas-frequentes", texto: "Ver dúvidas sobre convênio e consulta" },
@@ -376,18 +376,18 @@ const ONDE_ATENDO: BlocoGeo = {
   faqTitulo: "Perguntas frequentes sobre locais de atendimento",
   faq: [
     {
-      pergunta: "Quais hospitais o Dr. Manoel Carlos atende?",
+      pergunta: "Onde o Dr. Manoel Carlos atende?",
       resposta:
-        "Hospital Nove de Julho, Hospital Samaritano Higienópolis, Hospital Leforte Liberdade e Hospital Emunah, todos em São Paulo.",
+        "No Hospital Nove de Julho, no Hospital Samaritano Higienópolis, no Hospital Leforte Liberdade e no Instituto Emunah (EMNH Instituto de Medicina, no Jardim das Perdizes), todos em São Paulo.",
     },
     {
-      pergunta: "Como agendar em cada hospital?",
+      pergunta: "Como agendar em cada unidade?",
       resposta:
-        "Pelo telefone de cada unidade: Hospital Nove de Julho, (11) 97614-9750; Hospital Samaritano Higienópolis, (11) 3821-5701; Hospital Leforte Liberdade, (11) 91306-4455. Os demais agendamentos, incluindo o Hospital Emunah, são feitos pelo WhatsApp (11) 99202-8745.",
+        "Pelo telefone de cada unidade: Hospital Nove de Julho, (11) 97614-9750; Hospital Samaritano Higienópolis, (11) 3821-5701; Hospital Leforte Liberdade, (11) 91306-4455; Instituto Emunah, (11) 3615-2474. Os demais agendamentos são feitos pelo WhatsApp (11) 99202-8745.",
     },
     {
       pergunta: "Há atendimento por teleconsulta?",
-      resposta: "Não. Todo o atendimento é presencial, nos hospitais parceiros.",
+      resposta: "Não. Todo o atendimento é presencial, nas unidades parceiras.",
     },
   ],
 };
@@ -396,7 +396,7 @@ const ONDE_ATENDO: BlocoGeo = {
 
 const SAO_PAULO: BlocoGeo = {
   resumo:
-    "O Dr. Manoel Carlos é oncologista clínico em São Paulo (CRM-SP 139.361, RQE 39585 e 103468), com formação pela FMRP-USP e residência em Oncologia Clínica pelo ICESP-USP. Atende em quatro hospitais da capital: Nove de Julho, Samaritano Higienópolis, Leforte Liberdade e Emunah.",
+    "O Dr. Manoel Carlos é oncologista clínico em São Paulo (CRM-SP 139.361, RQE 39585 e 103468), com formação pela FMRP-USP e residência em Oncologia Clínica pelo ICESP-USP. Atende em três hospitais da capital — Nove de Julho, Samaritano Higienópolis e Leforte Liberdade — e no Instituto Emunah, no Jardim das Perdizes.",
   secoes: [
     {
       titulo: "Atendimento na capital paulista",
@@ -405,7 +405,7 @@ const SAO_PAULO: BlocoGeo = {
         "O atendimento é pensado justamente para isso: consultas longas, acompanhamento próximo e um canal direto para as dúvidas que aparecem entre um retorno e outro.",
       ],
       lista: [
-        "Quatro hospitais parceiros: Nove de Julho, Samaritano Higienópolis, Leforte Liberdade e Emunah",
+        "Hospitais Nove de Julho, Samaritano Higienópolis e Leforte Liberdade e Instituto Emunah",
         "Primeira consulta de cerca de 1 hora; retornos de cerca de 30 minutos",
         "Acompanhamento durante e depois do tratamento",
         "Atendimento presencial — não há teleconsulta",
@@ -414,7 +414,7 @@ const SAO_PAULO: BlocoGeo = {
     {
       titulo: "Regiões de onde chegam os pacientes",
       paragrafos: [
-        "Os quatro hospitais parceiros cobrem regiões diferentes da cidade — Cerqueira César, Higienópolis, Liberdade e Jardim das Perdizes, na região da Barra Funda —, o que costuma resolver o deslocamento para quem mora ou trabalha na zona oeste e na área central. Também chegam pacientes da região metropolitana, em especial de Osasco, Barueri, Guarulhos e do ABC.",
+        "As quatro unidades cobrem regiões diferentes da cidade — Cerqueira César, Higienópolis, Liberdade e Jardim das Perdizes, na região da Barra Funda —, o que costuma resolver o deslocamento para quem mora ou trabalha na zona oeste e na área central. Também chegam pacientes da região metropolitana, em especial de Osasco, Barueri, Guarulhos e do ABC.",
       ],
       linkPara: { path: "/onde-atendo", texto: "Ver todos os locais de atendimento" },
     },
@@ -438,13 +438,13 @@ const SAO_PAULO: BlocoGeo = {
 
 const PERDIZES: BlocoGeo = {
   resumo:
-    "Quem mora no Jardim das Perdizes e procura um oncologista pode ser atendido pelo Dr. Manoel Carlos no próprio bairro: ele integra o corpo clínico do Hospital Emunah, no Jardim das Perdizes, além de atender em outros três hospitais parceiros em São Paulo. A consulta inicial dura cerca de uma hora e cobre diagnóstico, definição de tratamento e acompanhamento.",
+    "Quem mora no Jardim das Perdizes e procura um oncologista pode ser atendido pelo Dr. Manoel Carlos no próprio bairro: ele integra o corpo clínico do Instituto Emunah, no Jardim das Perdizes, além de atender em outros três hospitais parceiros em São Paulo. A consulta inicial dura cerca de uma hora e cobre diagnóstico, definição de tratamento e acompanhamento.",
   secoes: [
     {
       titulo: "Oncologia no bairro, sem atravessar a cidade",
       paragrafos: [
         "O Jardim das Perdizes é um bairro planejado na região da Barra Funda, zona oeste de São Paulo, entre a Água Branca e a Marginal Tietê. Para quem mora ali, a diferença prática de tratar perto de casa aparece na rotina do tratamento oncológico: consulta de retorno, exame de controle e ajuste de conduta acontecem muitas vezes, e cada deslocamento longo pesa mais quando se está em tratamento.",
-        "O Hospital Emunah, um dos quatro hospitais parceiros onde o Dr. Manoel Carlos atende, fica no próprio Jardim das Perdizes. É o endereço mais próximo para moradores do bairro e do entorno imediato — Água Branca, Barra Funda e Pompeia.",
+        "O Instituto Emunah, uma das quatro unidades onde o Dr. Manoel Carlos atende, fica no número 2219 da Avenida Marquês de São Vicente, no próprio Jardim das Perdizes. É o endereço mais próximo para moradores do bairro e do entorno imediato — Água Branca, Barra Funda e Pompeia.",
       ],
       lista: [
         "Diagnóstico e investigação de suspeita de câncer",
@@ -457,7 +457,7 @@ const PERDIZES: BlocoGeo = {
     {
       titulo: "Jardim das Perdizes e Perdizes não são o mesmo bairro",
       paragrafos: [
-        "A confusão é comum e atrapalha na hora de procurar atendimento. Perdizes é o bairro tradicional da zona oeste, ao redor da PUC-SP e da Rua Cardoso de Almeida. O Jardim das Perdizes é um bairro planejado bem mais recente, erguido na antiga área industrial da Barra Funda, com acesso pela Avenida Marquês de São Vicente. São regiões vizinhas, mas distintas — e o Hospital Emunah fica no Jardim das Perdizes.",
+        "A confusão é comum e atrapalha na hora de procurar atendimento. Perdizes é o bairro tradicional da zona oeste, ao redor da PUC-SP e da Rua Cardoso de Almeida. O Jardim das Perdizes é um bairro planejado bem mais recente, erguido na antiga área industrial da Barra Funda, com acesso pela Avenida Marquês de São Vicente. São regiões vizinhas, mas distintas — e o Instituto Emunah fica no Jardim das Perdizes.",
       ],
     },
   ],
@@ -466,12 +466,12 @@ const PERDIZES: BlocoGeo = {
     {
       pergunta: "Existe oncologista no Jardim das Perdizes?",
       resposta:
-        "Sim. O Dr. Manoel Carlos, oncologista clínico (CRM-SP 139.361, RQE 39585 e 103468), atende no Hospital Emunah, que fica no Jardim das Perdizes, em São Paulo. Ele também atende nos hospitais Nove de Julho, Samaritano Higienópolis e Leforte Liberdade.",
+        "Sim. O Dr. Manoel Carlos, oncologista clínico (CRM-SP 139.361, RQE 39585 e 103468), atende no Instituto Emunah, que fica no Jardim das Perdizes, em São Paulo. Ele também atende nos hospitais Nove de Julho, Samaritano Higienópolis e Leforte Liberdade.",
     },
     {
       pergunta: "Onde fazer tratamento de câncer perto do Jardim das Perdizes?",
       resposta:
-        "O Hospital Emunah, no próprio Jardim das Perdizes, é o endereço mais próximo para moradores do bairro e da região da Barra Funda e da Água Branca. O acompanhamento com o Dr. Manoel Carlos também pode ser feito nos outros hospitais parceiros, conforme o convênio e a preferência do paciente.",
+        "O Instituto Emunah, no próprio Jardim das Perdizes, é o endereço mais próximo para moradores do bairro e da região da Barra Funda e da Água Branca. O acompanhamento com o Dr. Manoel Carlos também pode ser feito nos outros hospitais parceiros, conforme o convênio e a preferência do paciente.",
     },
     {
       pergunta: "O Jardim das Perdizes fica na Barra Funda?",
@@ -485,13 +485,13 @@ const PERDIZES: BlocoGeo = {
 
 const BARRA_FUNDA: BlocoGeo = {
   resumo:
-    "Para quem mora ou trabalha na Barra Funda, o Dr. Manoel Carlos é oncologista clínico com atendimento na região: ele integra o corpo clínico do Hospital Emunah, no Jardim das Perdizes — bairro dentro da própria Barra Funda —, além de outros três hospitais parceiros em São Paulo. Atende diagnóstico, definição de tratamento, segunda opinião e acompanhamento contínuo.",
+    "Para quem mora ou trabalha na Barra Funda, o Dr. Manoel Carlos é oncologista clínico com atendimento na região: ele integra o corpo clínico do Instituto Emunah, no Jardim das Perdizes — bairro dentro da própria Barra Funda —, além de outros três hospitais parceiros em São Paulo. Atende diagnóstico, definição de tratamento, segunda opinião e acompanhamento contínuo.",
   secoes: [
     {
       titulo: "Atendimento oncológico na região da Barra Funda",
       paragrafos: [
         "A Barra Funda é um dos maiores nós de circulação de São Paulo: o Terminal Intermodal Palmeiras-Barra Funda concentra metrô, trem e ônibus intermunicipais, e a região é acessível de praticamente toda a zona oeste e do interior. Para tratamento oncológico, isso importa mais do que parece — o paciente em tratamento faz esse trajeto muitas vezes, às vezes acompanhado, às vezes cansado depois de uma sessão.",
-        "O atendimento na região acontece no Hospital Emunah, no Jardim das Perdizes, dentro da própria Barra Funda. Moradores da Água Branca, da Pompeia, da Lapa, de Perdizes e da Vila Leopoldina chegam ali sem atravessar o centro.",
+        "O atendimento na região acontece no Instituto Emunah, no Jardim das Perdizes, dentro da própria Barra Funda. Moradores da Água Branca, da Pompeia, da Lapa, de Perdizes e da Vila Leopoldina chegam ali sem atravessar o centro.",
       ],
       lista: [
         "Primeira avaliação com revisão completa dos exames trazidos",
@@ -514,16 +514,16 @@ const BARRA_FUNDA: BlocoGeo = {
     {
       pergunta: "Onde encontrar um oncologista na Barra Funda?",
       resposta:
-        "O Dr. Manoel Carlos, oncologista clínico (CRM-SP 139.361, RQE 39585 e 103468), atende no Hospital Emunah, no Jardim das Perdizes, bairro que fica na região da Barra Funda, em São Paulo. Também atende nos hospitais Nove de Julho, Samaritano Higienópolis e Leforte Liberdade.",
+        "O Dr. Manoel Carlos, oncologista clínico (CRM-SP 139.361, RQE 39585 e 103468), atende no Instituto Emunah, no Jardim das Perdizes, bairro que fica na região da Barra Funda, em São Paulo. Também atende nos hospitais Nove de Julho, Samaritano Higienópolis e Leforte Liberdade.",
     },
     {
       pergunta: "Onde tratar câncer na região da Barra Funda?",
       resposta:
-        "Na região, o atendimento oncológico do Dr. Manoel Carlos acontece no Hospital Emunah, no Jardim das Perdizes. É o endereço mais próximo para quem mora na Barra Funda, na Água Branca, na Pompeia e na Lapa, com acesso pelo Terminal Palmeiras-Barra Funda.",
+        "Na região, o atendimento oncológico do Dr. Manoel Carlos acontece no Instituto Emunah, no Jardim das Perdizes. É o endereço mais próximo para quem mora na Barra Funda, na Água Branca, na Pompeia e na Lapa, com acesso pelo Terminal Palmeiras-Barra Funda.",
     },
     {
-      pergunta: "Como agendar uma consulta no Hospital Emunah?",
-      resposta: `Pelo WhatsApp de demais agendamentos, ${site.whatsappDisplay}. O mesmo contato ajuda a indicar outra unidade, se ela fizer mais sentido para o seu convênio ou para o deslocamento.`,
+      pergunta: "Como agendar uma consulta no Instituto Emunah?",
+      resposta: `Pelo telefone do instituto, (11) 3615-2474, ou pelo WhatsApp de demais agendamentos, ${site.whatsappDisplay}. O instituto fica na Av. Marquês de São Vicente, 2219, conj. 316, no Jardim das Perdizes. O WhatsApp também ajuda a indicar outra unidade, se ela fizer mais sentido para o seu convênio ou para o deslocamento.`,
     },
   ],
 };
@@ -531,19 +531,19 @@ const BARRA_FUNDA: BlocoGeo = {
 /* --------------------------------------------------------------- agendar -- */
 
 const AGENDAR: BlocoGeo = {
-  resumo: `Para agendar consulta com o Dr. Manoel Carlos, oncologista clínico em São Paulo, ligue para o hospital escolhido — Nove de Julho (11) 97614-9750, Samaritano Higienópolis (11) 3821-5701 ou Leforte Liberdade (11) 91306-4455. Os demais agendamentos são feitos pelo WhatsApp ${site.whatsappDisplay} ou pelo e-mail ${site.email}.`,
+  resumo: `Para agendar consulta com o Dr. Manoel Carlos, oncologista clínico em São Paulo, ligue para a unidade escolhida — Hospital Nove de Julho (11) 97614-9750, Samaritano Higienópolis (11) 3821-5701, Leforte Liberdade (11) 91306-4455 ou Instituto Emunah (11) 3615-2474. Os demais agendamentos são feitos pelo WhatsApp ${site.whatsappDisplay} ou pelo e-mail ${site.email}.`,
 };
 
 /* -------------------------------------------------------------------- FAQ -- */
 
 const FAQ_PAGINA: BlocoGeo = {
   resumo:
-    "A primeira consulta com o Dr. Manoel Carlos dura cerca de uma hora; os retornos, cerca de 30 minutos. O atendimento por convênio é feito nos hospitais Nove de Julho, Samaritano Higienópolis, Leforte Liberdade e Emunah. Não há teleconsulta: todo o atendimento é presencial.",
+    "A primeira consulta com o Dr. Manoel Carlos dura cerca de uma hora; os retornos, cerca de 30 minutos. O atendimento por convênio é feito nos hospitais Nove de Julho, Samaritano Higienópolis e Leforte Liberdade e no Instituto Emunah. Não há teleconsulta: todo o atendimento é presencial.",
   faqTitulo: "Outras dúvidas frequentes",
   faq: [
     {
       pergunta: "Como agendo uma consulta?",
-      resposta: `Pelo telefone do hospital escolhido — Nove de Julho (11) 97614-9750, Samaritano Higienópolis (11) 3821-5701 ou Leforte Liberdade (11) 91306-4455. Os demais agendamentos são feitos pelo WhatsApp ${site.whatsappDisplay} ou pelo e-mail ${site.email}.`,
+      resposta: `Pelo telefone da unidade escolhida — Hospital Nove de Julho (11) 97614-9750, Samaritano Higienópolis (11) 3821-5701, Leforte Liberdade (11) 91306-4455 ou Instituto Emunah (11) 3615-2474. Os demais agendamentos são feitos pelo WhatsApp ${site.whatsappDisplay} ou pelo e-mail ${site.email}.`,
     },
     {
       pergunta: "O que acontece na primeira consulta?",
@@ -558,7 +558,7 @@ const FAQ_PAGINA: BlocoGeo = {
     {
       pergunta: "Em quanto tempo consigo ser atendido?",
       resposta:
-        "Depende da agenda de cada hospital, e casos em investigação são priorizados sempre que possível. A disponibilidade é informada no próprio contato de agendamento.",
+        "Depende da agenda de cada unidade, e casos em investigação são priorizados sempre que possível. A disponibilidade é informada no próprio contato de agendamento.",
     },
   ],
 };

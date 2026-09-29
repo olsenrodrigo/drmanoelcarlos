@@ -298,16 +298,16 @@ export const consultorio = {
   meta: {
     title: "Onde atendo | Dr. Manoel Carlos, Oncologista",
     description:
-      "Endereços e telefones dos hospitais onde o Dr. Manoel Carlos, oncologista clínico, atende em São Paulo: Nove de Julho, Samaritano Higienópolis, Leforte Liberdade e Emunah.",
+      "Endereços e telefones dos locais onde o Dr. Manoel Carlos, oncologista clínico, atende em São Paulo: hospitais Nove de Julho, Samaritano Higienópolis e Leforte Liberdade e Instituto Emunah.",
   } satisfies Meta,
 
   h1: "Onde atendo",
   abertura:
-    "Atendo em hospitais parceiros em São Paulo. Confira abaixo o endereço e o telefone de agendamento de cada unidade.",
+    "Atendo em três hospitais e em uma clínica parceira em São Paulo. Confira abaixo o endereço e o telefone de agendamento de cada unidade.",
 
   hospitalar: {
-    titulo: "Hospitais parceiros",
-    texto: "O agendamento é feito diretamente com o hospital escolhido, pelo telefone de cada unidade:",
+    titulo: "Locais de atendimento",
+    texto: "O agendamento é feito diretamente com a unidade escolhida, pelo telefone de cada uma:",
   },
 
   demais: {
@@ -362,7 +362,7 @@ export const faq = {
     {
       pergunta: "O atendimento aceita convênio?",
       resposta:
-        "Sim. O atendimento por convênio é feito nos hospitais parceiros (Nove de Julho, Samaritano Higienópolis, Leforte Liberdade e Emunah). A cobertura do seu plano é confirmada no agendamento, com o hospital escolhido.",
+        "Sim. O atendimento por convênio é feito nos hospitais Nove de Julho, Samaritano Higienópolis e Leforte Liberdade e no Instituto Emunah. A cobertura do seu plano é confirmada no agendamento, com a unidade escolhida.",
     },
     {
       pergunta: "Quanto tempo dura a consulta?",
@@ -377,7 +377,7 @@ export const faq = {
     {
       pergunta: "Atende por teleconsulta?",
       resposta:
-        "Não. O atendimento é presencial, nos hospitais parceiros.",
+        "Não. O atendimento é presencial, nos hospitais e na clínica parceiros.",
     },
   ],
 } as const;
@@ -390,7 +390,7 @@ export const saoPaulo = {
   meta: {
     title: "Oncologista em São Paulo | Dr. Manoel Carlos",
     description:
-      "Oncologista clínico em São Paulo, com atendimento nos hospitais Nove de Julho, Samaritano Higienópolis, Leforte Liberdade e Emunah. Diagnóstico, tratamento e segunda opinião.",
+      "Oncologista clínico em São Paulo, com atendimento nos hospitais Nove de Julho, Samaritano Higienópolis e Leforte Liberdade e no Instituto Emunah. Diagnóstico, tratamento e segunda opinião.",
   } satisfies Meta,
   h1: "Oncologista clínico em São Paulo",
 } as const;
@@ -401,7 +401,7 @@ export const perdizes = {
   meta: {
     title: "Oncologia no Jardim das Perdizes | Dr. Manoel Carlos",
     description:
-      "Oncologia clínica para pacientes do Jardim das Perdizes e região: diagnóstico, tratamento de câncer e acompanhamento com o Dr. Manoel Carlos, que atende no Hospital Emunah, no bairro.",
+      "Oncologia clínica para pacientes do Jardim das Perdizes e região: diagnóstico, tratamento de câncer e acompanhamento com o Dr. Manoel Carlos, que atende no Instituto Emunah, no bairro.",
   } satisfies Meta,
   h1: "Oncologia no Jardim das Perdizes",
 } as const;

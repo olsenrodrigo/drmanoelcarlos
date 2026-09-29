@@ -26,7 +26,7 @@ export const variantesDeMarca = [
  * Bairros e regiões de São Paulo cobertos pelo site.
  *
  * A âncora do bloco Jardim das Perdizes / Barra Funda é factual: o Hospital
- * Emunah, um dos quatro hospitais parceiros da copy, fica no Jardim das
+ * Emunah, uma das quatro unidades parceiras da copy, fica no Jardim das
  * Perdizes — bairro planejado dentro da região da Barra Funda, zona oeste.
  * Os demais bairros são os do entorno dos outros hospitais parceiros
  * (Higienópolis, Liberdade, Jardim Paulista) e os vizinhos imediatos.
@@ -141,7 +141,7 @@ export const alvosPorRota: AlvoDaRota[] = [
     secundarias: [
       "oncologista Hospital Leforte Liberdade",
       "oncologista Hospital Samaritano Higienópolis",
-      "oncologista Hospital Emunah",
+      "oncologista Instituto Emunah",
       "oncologista convênio São Paulo",
     ],
   },
@@ -179,7 +179,7 @@ export const alvosPorRota: AlvoDaRota[] = [
       "oncologia clínica Jardim das Perdizes",
       "médico oncologista Jardim das Perdizes",
       "oncologista Perdizes São Paulo",
-      "oncologista Hospital Emunah Jardim das Perdizes",
+      "oncologista Instituto Emunah Jardim das Perdizes",
     ],
   },
   {

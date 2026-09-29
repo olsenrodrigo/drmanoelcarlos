@@ -105,10 +105,11 @@ const enderecoPostal = {
   addressCountry: "BR",
 };
 
-/** Hospitais onde o Dr. Manoel atende, como entidades próprias, com endereço e telefone. */
+/** Locais onde o Dr. Manoel atende (três hospitais e uma clínica), como entidades próprias. */
 const hospitais = site.hospitais.map((h) => ({
-  "@type": "Hospital",
-  name: h.nome,
+  "@type": h.tipo,
+  name: h.nomeOficial ?? h.nome,
+  ...(h.nomeOficial ? { alternateName: h.nome } : {}),
   ...(h.telefone ? { telephone: `+55 ${h.telefone}` } : {}),
   address: {
     "@type": "PostalAddress",
@@ -190,7 +191,7 @@ export const consultorioSchema = {
   name: site.name,
   alternateName: variantesDeMarca,
   description:
-    "Oncologia clínica em São Paulo/SP. Diagnóstico, definição de tratamento sistêmico, segunda opinião e acompanhamento contínuo do paciente oncológico, com o Dr. Manoel Carlos (CRM-SP 139.361, RQE 39585 e 103468), nos hospitais Nove de Julho, Samaritano Higienópolis, Leforte Liberdade e Emunah.",
+    "Oncologia clínica em São Paulo/SP. Diagnóstico, definição de tratamento sistêmico, segunda opinião e acompanhamento contínuo do paciente oncológico, com o Dr. Manoel Carlos (CRM-SP 139.361, RQE 39585 e 103468), nos hospitais Nove de Julho, Samaritano Higienópolis e Leforte Liberdade e no Instituto Emunah.",
   url: site.origin,
   image: `${site.origin}/opengraph.jpg`,
   logo: `${site.origin}/favicon.png`,

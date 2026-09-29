@@ -188,9 +188,9 @@ export function Etapas({
 /* ------------------------------------------------------------- hospitais -- */
 
 /**
- * Um cartão por hospital, com endereço e telefone de agendamento. Hospital sem
- * telefone próprio (o Emunah, por ora) aponta para o WhatsApp de demais
- * agendamentos em vez de ficar sem contato.
+ * Um cartão por unidade, com endereço e telefone de agendamento. Unidade sem
+ * telefone próprio aponta para o WhatsApp de demais agendamentos em vez de
+ * ficar sem contato.
  */
 export function ListaHospitais() {
   return (
@@ -199,6 +199,7 @@ export function ListaHospitais() {
         <article className="cartao cartao-hospital" key={hospital.nome}>
           <IconeHospital className="icone" />
           <h3>{hospital.nome}</h3>
+          {hospital.nomeOficial && <p className="cartao-sub">{hospital.nomeOficial}</p>}
           <address>
             {hospital.rua ? (
               <a href={mapsUrl(hospital)} target="_blank" rel="noreferrer">
@@ -231,6 +232,42 @@ export function ListaHospitais() {
         </article>
       ))}
     </div>
+  );
+}
+
+/* -------------------------------------------------------- fotos Emunah -- */
+
+/** Galeria do Instituto Emunah (fotos do site do próprio instituto). */
+export function GaleriaEmunah({ fundo = "fundo-branco" }: { fundo?: string }) {
+  const emunah = site.hospitais.find((h) => h.nome === "Instituto Emunah");
+  return (
+    <section className={`secao ${fundo}`}>
+      <div className="wrap">
+        <Surge>
+          <p className="sobrelinha">Instituto Emunah · Jardim das Perdizes</p>
+          <h2 style={{ marginBottom: 12 }}>O espaço do Instituto Emunah</h2>
+          {emunah && (
+            <p style={{ marginBottom: 40 }}>
+              {emunah.nomeOficial} — {emunah.rua}, {emunah.bairro}, {site.cidade}/{site.estado}.
+              Agendamento: <a href={telUrl(emunah.telefone)}>{emunah.telefone}</a>.
+            </p>
+          )}
+        </Surge>
+        <div className="galeria">
+          {site.fotosEmunah.map((foto) => (
+            <figure key={foto.alt}>
+              <img
+                src={foto.src}
+                alt={foto.alt}
+                width={foto.width}
+                height={foto.height}
+                loading="lazy"
+              />
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -372,19 +409,21 @@ export function DadosContato() {
             </div>
           </div>
         ))}
-      <div className="dado">
-        <IconeLocal />
-        <div>
-          <strong>Outras unidades</strong>
-          <p>
-            {site.hospitais
-              .filter((h) => !h.telefone)
-              .map((h) => `${h.nome} (${h.bairro})`)
-              .join(" · ")}{" "}
-            — agendamento pelo WhatsApp {site.whatsappDisplay}
-          </p>
+      {site.hospitais.some((h) => !h.telefone) && (
+        <div className="dado">
+          <IconeLocal />
+          <div>
+            <strong>Outras unidades</strong>
+            <p>
+              {site.hospitais
+                .filter((h) => !h.telefone)
+                .map((h) => `${h.nome} (${h.bairro})`)
+                .join(" · ")}{" "}
+              — agendamento pelo WhatsApp {site.whatsappDisplay}
+            </p>
+          </div>
         </div>
-      </div>
+      )}
       <div className="dado">
         <IconeEstetoscopio />
         <div>

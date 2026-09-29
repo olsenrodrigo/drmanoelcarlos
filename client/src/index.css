@@ -224,6 +224,10 @@ a.cartao:hover { background: var(--petroleo-50); }
 .cartao h3 { margin: 0; }
 .cartao p { margin: 0; font-size: .95rem; flex: 1; }
 .cartao .link-seta { margin-top: 2px; }
+.cartao-sub { margin-top: -8px !important; flex: 0 !important; font-size: .8rem !important; letter-spacing: .04em; color: var(--petroleo-600); }
+.galeria { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.galeria figure { margin: 0; }
+.galeria img { width: 100%; height: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 3px; background: var(--petroleo-100); }
 .cartao-hospital address { font-style: normal; font-size: .95rem; line-height: 1.55; flex: 1; }
 .cartao-hospital address a:hover { color: var(--petroleo-600); text-decoration: underline; text-underline-offset: 3px; }
 
@@ -413,6 +417,7 @@ a.cartao:hover { background: var(--petroleo-50); }
   .selos-grid li:nth-child(3) { border-left: 0; padding-left: 0; }
   .selos-grid li { padding-block: 24px; }
   .grade-depoimentos { grid-template-columns: 1fr; }
+  .galeria { grid-template-columns: 1fr 1fr; }
   .grade-contato { grid-template-columns: 1fr; }
   .rodape-grid { grid-template-columns: 1fr 1fr; }
 }
