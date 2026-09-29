@@ -49,7 +49,7 @@ e llms.txt saem daí.
 ```
 client/src/content/     copy e SEO — é o que o cliente revisa
   site.ts               dados institucionais (contatos, horários, hospitais, fotos)
-  pages.ts              COPY APROVADA, transcrita do documento do cliente
+  pages.ts              COPY APROVADA, transcrita do documento do cliente (v2)
   geo.ts                conteúdo escrito para SEO/GEO (resumos citáveis, FAQ por página)
   palavras-chave.ts     alvo de cada rota + trava contra canibalização
   rotas.ts              registro único das rotas indexáveis + JSON-LD de cada uma
@@ -117,7 +117,7 @@ trava de canibalização quebra o build se dois caminhos disputarem o mesmo term
 3. **Depoimentos** — o cliente confirmou ter depoimentos autorizados, mas não
    enviou os textos. A seção existe e fica oculta por `site.showTestimonials`.
    Ao publicar, manter anônimos (sem nome completo nem foto identificável),
-   conforme a nota ética da copy.
+   conforme a lista de pendências da copy v2.
 4. **Fotos** — existe um único retrato. `site.foto` (inteiro) e `site.fotoFechada`
    (mesmo arquivo, enquadramento fechado) cobrem o site hoje. A copy pede fotos
    de consulta, consultório e ambiente hospitalar; quando houver ensaio novo, é

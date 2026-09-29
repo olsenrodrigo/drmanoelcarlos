@@ -1,6 +1,6 @@
 /**
  * Copy aprovada do site — transcrita do documento "COPY DO SITE Dr. Manoel
- * Carlos", sem reescrita. O que foi escrito depois, para SEO/GEO, mora em
+ * Carlos - v2", sem reescrita. O que foi escrito depois, para SEO/GEO, mora em
  * `content/geo.ts`; misturar os dois faz a revisão do cliente virar caça ao
  * texto novo.
  *
@@ -92,8 +92,9 @@ export const home = {
     texto:
       "Clareza nas explicações, tempo dedicado a cada consulta e um acompanhamento próximo durante todo o tratamento são os pontos mais citados por quem já passou pelo consultório.",
     /**
-     * Nota ética da copy: depoimentos de saúde só entram anônimos (sem nome
-     * completo nem foto identificável), mesmo com autorização do paciente.
+     * Depoimentos de saúde só entram anônimos (sem nome completo nem foto
+     * identificável), mesmo com autorização do paciente — regra mantida na
+     * lista de pendências da copy v2.
      * Os textos ainda não foram enviados — a seção fica oculta por
      * `site.showTestimonials`.
      */
