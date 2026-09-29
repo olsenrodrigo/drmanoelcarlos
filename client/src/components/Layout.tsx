@@ -125,9 +125,9 @@ export function Rodape() {
               {site.registro}
             </p>
             <p>
-              Consultório particular em {site.address.city}/{site.address.state}
-              <br />
-              {site.hours}
+              Atendimento nos hospitais {site.hospitais.map((h) => h.nome.replace(/^Hospital /, "")).join(", ")}
+              {" — "}
+              {site.cidade}/{site.estado}
             </p>
             {redes.length > 0 && (
               <div className="rodape-social">
@@ -181,7 +181,7 @@ export function Rodape() {
               </li>
               <li>
                 <a href={agendarUrl()} target="_blank" rel="noreferrer">
-                  WhatsApp {site.whatsappDisplay}
+                  {site.whatsappRotulo}: {site.whatsappDisplay}
                 </a>
               </li>
               <li>

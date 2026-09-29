@@ -7,6 +7,13 @@
  * Os `meta` seguem os títulos e descrições sugeridos na própria copy quando
  * ela os traz; onde não traz (home, FAQ, páginas de bairro), foram escritos
  * no mesmo tom e com a palavra-chave da rota em `content/palavras-chave.ts`.
+ *
+ * Ajustes pedidos pelo cliente depois da v2 (set/2026): saíram do site todos
+ * os dados do atendimento particular (valor da consulta, dias e horários do
+ * consultório, "apenas particular" e o pacote de acompanhamento com valor
+ * mensal) — passam a ser informados só ao vivo, a quem pedir. O "Onde atendo"
+ * lista os hospitais com endereço e telefone; entraram o RQE de Clínica
+ * Médica e os depoimentos.
  */
 
 export type Meta = { title: string; description: string };
@@ -19,7 +26,7 @@ export const home = {
   meta: {
     title: "Dr. Manoel Carlos | Oncologista Clínico em São Paulo",
     description:
-      "Oncologista clínico em São Paulo. Diagnóstico, tratamento e acompanhamento oncológico com consulta sem pressa e plano explicado com clareza. CRM-SP 139.361, RQE 103468.",
+      "Oncologista clínico em São Paulo. Diagnóstico, tratamento e acompanhamento oncológico com consulta sem pressa e plano explicado com clareza. CRM-SP 139.361, RQE 39585 e 103468.",
   } satisfies Meta,
 
   h1: "Diagnóstico, tratamento e acompanhamento oncológico com clareza e presença humana",
@@ -92,13 +99,34 @@ export const home = {
     texto:
       "Clareza nas explicações, tempo dedicado a cada consulta e um acompanhamento próximo durante todo o tratamento são os pontos mais citados por quem já passou pelo consultório.",
     /**
-     * Depoimentos de saúde só entram anônimos (sem nome completo nem foto
-     * identificável), mesmo com autorização do paciente — regra mantida na
-     * lista de pendências da copy v2.
-     * Os textos ainda não foram enviados — a seção fica oculta por
-     * `site.showTestimonials`.
+     * Depoimentos autorizados, enviados pelo cliente (set/2026). Texto do
+     * paciente mantido, só com acento, pontuação e a grafia do nome do médico
+     * corrigidos; o "Pontos de melhoria: Nenhuma" do formulário de origem saiu.
+     * Autor com nome e inicial do sobrenome — a regra da copy v2 é não
+     * publicar nome completo de paciente.
      */
-    itens: [] as { texto: string; autor: string }[],
+    itens: [
+      {
+        texto:
+          "O Dr. Manoel é um excelente profissional, atencioso, competente! Médico detalhista que nos passa total confiança. Relação médico-paciente totalmente humanizada, médico amigo. Recomendo porque fez total diferença no meu processo pós-cirurgia e continuo o meu acompanhamento com ele. Gratidão!",
+        autor: "Daniel A.",
+      },
+      {
+        texto:
+          "Dr. Manoel, você é um ser de luz! Além de fera nos diagnósticos, mesmo que ainda em consulta preliminar, é um ser humano incrível, de uma educação admirável! Siga firme no seu propósito e com a certeza de estar no caminho certo! Que Deus o abençoe sempre e tenha vida e saúde em abundância!",
+        autor: "Déia C.",
+      },
+      {
+        texto:
+          "Um excelente médico e melhor oncologista. Um ser humano que cuida do paciente com carinho e dedicação. Gratidão sempre. Não há palavras para agradecer. Que Deus abençoe sempre.",
+        autor: "Aline C.",
+      },
+      {
+        texto:
+          "Minha gratidão ao médico que iniciou meu tratamento contra o câncer de mama. Um profissional excepcional, humano e extremamente competente. Fui acolhida desde o início. Sou muito grata por todo cuidado e dedicação.",
+        autor: "Léia A.",
+      },
+    ] as { texto: string; autor: string }[],
     placeholder:
       "Os depoimentos autorizados serão publicados aqui de forma anônima, respeitando o sigilo médico.",
   },
@@ -142,7 +170,7 @@ export const comoCuido = {
       icone: "acompanhamento" as const,
       titulo: "Acompanhamento contínuo",
       texto:
-        "Para quem precisa de um suporte mais próximo durante o tratamento, ofereço um pacote de acompanhamento com consultas semanais e telefone disponível 24h.",
+        "Acompanhamento próximo durante todo o tratamento, com retornos regulares para medir a resposta, ajustar a conduta e responder às dúvidas que surgem no caminho.",
     },
     {
       icone: "decisao" as const,
@@ -189,7 +217,7 @@ export const oncologiaClinica = {
   acompanhamento: {
     titulo: "Acompanhamento contínuo",
     texto:
-      "Para pacientes que preferem um suporte mais próximo durante o tratamento, há um pacote com consultas semanais e telefone disponível 24h para dúvidas.",
+      "O acompanhamento continua durante e depois do tratamento, com retornos regulares para monitorar a evolução, ajustar a conduta e esclarecer as dúvidas que surgem no caminho.",
   },
 
   ctaFinal: "Precisa de acompanhamento oncológico ou de uma segunda opinião?",
@@ -270,25 +298,21 @@ export const consultorio = {
   meta: {
     title: "Onde atendo | Dr. Manoel Carlos, Oncologista",
     description:
-      "Consultório particular e atendimento em hospitais parceiros (Nove de Julho, Samaritano Higienópolis, Leforte Liberdade, Emunah) com o Dr. Manoel Carlos, oncologista clínico.",
+      "Endereços e telefones dos hospitais onde o Dr. Manoel Carlos, oncologista clínico, atende em São Paulo: Nove de Julho, Samaritano Higienópolis, Leforte Liberdade e Emunah.",
   } satisfies Meta,
 
   h1: "Onde atendo",
   abertura:
-    "Atendo em consultório particular, com horários fixos, e também em hospitais parceiros para atendimento via convênio. Confira abaixo onde e quando você pode ser atendido.",
-
-  particular: {
-    titulo: "Consultório particular",
-    texto:
-      "Atendimento particular às terças-feiras, das 19h às 21h, e sextas-feiras, das 13h às 17h.",
-    /** A copy traz o endereço como "[a definir]" — ver `site.enderecoConfirmado`. */
-    enderecoPendente:
-      "O endereço completo do consultório será divulgado aqui em breve. Até lá, o agendamento e a orientação de como chegar são feitos diretamente pelo WhatsApp.",
-  },
+    "Atendo em hospitais parceiros em São Paulo. Confira abaixo o endereço e o telefone de agendamento de cada unidade.",
 
   hospitalar: {
-    titulo: "Atendimento hospitalar (convênio)",
-    texto: "Nos demais dias, em horário comercial, atendo nos seguintes hospitais parceiros:",
+    titulo: "Hospitais parceiros",
+    texto: "O agendamento é feito diretamente com o hospital escolhido, pelo telefone de cada unidade:",
+  },
+
+  demais: {
+    titulo: "Demais agendamentos",
+    texto: "Para agendar em outra unidade ou tirar dúvidas antes de marcar, fale pelo WhatsApp:",
   },
 
   presencial: {
@@ -324,22 +348,21 @@ export const faq = {
   meta: {
     title: "Perguntas frequentes | Dr. Manoel Carlos, Oncologista",
     description:
-      "Valor da consulta, convênios, duração do atendimento, acompanhamento entre consultas e teleconsulta: as dúvidas mais comuns sobre a consulta com o Dr. Manoel Carlos.",
+      "Convênios, duração do atendimento, acompanhamento entre consultas e teleconsulta: as dúvidas mais comuns sobre a consulta com o Dr. Manoel Carlos.",
   } satisfies Meta,
 
   h1: "Dúvidas rápidas",
 
-  /** As cinco perguntas da copy aprovada, na ordem original. */
+  /**
+   * As perguntas da copy aprovada, na ordem original — sem "Quanto custa a
+   * consulta?" e com as respostas sobre convênio e acompanhamento sem dado do
+   * atendimento particular (ajuste do cliente, set/2026).
+   */
   itens: [
     {
-      pergunta: "Quanto custa a consulta?",
+      pergunta: "O atendimento aceita convênio?",
       resposta:
-        "A consulta médica é R$ 870. O acompanhamento oncológico continuado tem valor mensal combinado individualmente com cada paciente, de acordo com a necessidade do tratamento.",
-    },
-    {
-      pergunta: "O consultório aceita convênio?",
-      resposta:
-        "O atendimento no consultório particular é apenas particular. O atendimento por convênio é feito nos hospitais parceiros (Nove de Julho, Samaritano Higienópolis, Leforte Liberdade e Emunah).",
+        "Sim. O atendimento por convênio é feito nos hospitais parceiros (Nove de Julho, Samaritano Higienópolis, Leforte Liberdade e Emunah). A cobertura do seu plano é confirmada no agendamento, com o hospital escolhido.",
     },
     {
       pergunta: "Quanto tempo dura a consulta?",
@@ -349,12 +372,12 @@ export const faq = {
     {
       pergunta: "Existe acompanhamento entre as consultas?",
       resposta:
-        "Sim. Para pacientes que precisam de suporte mais próximo, existe um pacote de acompanhamento contínuo com consultas semanais e suporte por telefone 24h.",
+        "Sim. O acompanhamento continua entre um retorno e outro, e as dúvidas que surgem no caminho podem ser encaminhadas pelo WhatsApp de agendamento.",
     },
     {
       pergunta: "Atende por teleconsulta?",
       resposta:
-        "Não. O atendimento é presencial, no consultório particular ou nos hospitais parceiros.",
+        "Não. O atendimento é presencial, nos hospitais parceiros.",
     },
   ],
 } as const;
@@ -367,7 +390,7 @@ export const saoPaulo = {
   meta: {
     title: "Oncologista em São Paulo | Dr. Manoel Carlos",
     description:
-      "Oncologista clínico em São Paulo: consultório particular e atendimento por convênio nos hospitais Nove de Julho, Samaritano Higienópolis, Leforte Liberdade e Emunah.",
+      "Oncologista clínico em São Paulo, com atendimento nos hospitais Nove de Julho, Samaritano Higienópolis, Leforte Liberdade e Emunah. Diagnóstico, tratamento e segunda opinião.",
   } satisfies Meta,
   h1: "Oncologista clínico em São Paulo",
 } as const;

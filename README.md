@@ -1,7 +1,7 @@
 # Site do Dr. Manoel Carlos — Oncologia Clínica
 
 Site institucional do Dr. Manoel Carlos Leonardi de Azevedo Souza (CRM-SP 139.361,
-RQE 103468), oncologista clínico em São Paulo. Construído sobre a base
+RQE 39585 — Clínica Médica e RQE 103468 — Oncologia Clínica), oncologista clínico em São Paulo. Construído sobre a base
 `whitelabel_v2` (React 19 + Vite + Express), com pré-renderização por rota.
 
 ## Rodar
@@ -101,27 +101,31 @@ trava de canibalização quebra o build se dois caminhos disputarem o mesmo term
 - `DATA_REVISAO` em `lib/seo.ts` alimenta `lastReviewed`. **Atualizar sempre que
   o Dr. Manoel revisar os textos** — data velha é pior que nenhuma.
 
+## Atendimento particular: fora do site
+
+Por decisão do cliente (set/2026), **nenhum dado do atendimento particular
+aparece no site**: valor da consulta, dias e horários, endereço do consultório,
+"só particular" e o pacote de acompanhamento com valor mensal. Esses dados são
+passados só ao vivo, a quem pedir, para evitar problema jurídico com a rede
+Américas. Vale para a copy, o `geo.ts`, o JSON-LD e o `llms.txt` — não
+reintroduzir. O site mostra os hospitais (`site.hospitais`) com endereço e
+telefone de agendamento, e o WhatsApp (11) 99202-8745 como "demais
+agendamentos".
+
 ## Pendências (dados que faltam)
 
-1. **Endereço do consultório particular** — veio como `[a definir]` na copy. Hoje
-   o site diz que o endereço é informado no agendamento, e o JSON-LD declara só
-   a cidade. Ao confirmar: preencher `site.address`, ligar
-   `site.enderecoConfirmado` e acrescentar o nó `geo` (coordenadas do pin do
-   Perfil da Empresa no Google) em `lib/seo.ts`.
-   *Diretórios médicos ainda listam "Alameda Santos, 211 — Paraíso"; não foi
-   usado por não ter confirmação do cliente.*
-2. **Redes sociais** — o briefing pede redes em destaque. Só a página do Facebook
+1. **Hospital Emunah** — veio sem endereço e sem telefone. Hoje aparece só com o
+   bairro (Jardim das Perdizes) e agenda pelo WhatsApp de demais agendamentos.
+   Ao receber: preencher `rua`/`cep`/`telefone` em `site.hospitais`.
+2. **Fotos do Emunah** — o cliente pediu fotos no Emunah no lugar das do
+   consultório particular; os arquivos ainda não chegaram. As seções já esperam
+   `src`/`alt`/`width`/`height` em `site.foto*`.
+3. **Redes sociais** — o briefing pede redes em destaque. Só a página do Facebook
    foi encontrada em fonte pública. Instagram e LinkedIn ficam vazios em
    `site.social`; o rodapé e a página de contato já renderizam o que for
    preenchido.
-3. **Depoimentos** — o cliente confirmou ter depoimentos autorizados, mas não
-   enviou os textos. A seção existe e fica oculta por `site.showTestimonials`.
-   Ao publicar, manter anônimos (sem nome completo nem foto identificável),
-   conforme a lista de pendências da copy v2.
 4. **Fotos** — existe um único retrato. `site.foto` (inteiro) e `site.fotoFechada`
-   (mesmo arquivo, enquadramento fechado) cobrem o site hoje. A copy pede fotos
-   de consulta, consultório e ambiente hospitalar; quando houver ensaio novo, é
-   só acrescentar em `site.foto*`.
+   (mesmo arquivo, enquadramento fechado) cobrem o site hoje.
    *O arquivo original tinha a arte "Minha Trajetória", uma faixa diagonal e o
    logotipo sobrepostos; o fundo foi reconstruído para liberar o uso.*
 5. **Marca** — o logotipo do Dr. Manoel (monograma "MC" com estetoscópio +
@@ -129,8 +133,10 @@ trava de canibalização quebra o build se dois caminhos disputarem o mesmo term
    símbolo próprio em SVG (`components/Brand.tsx`), com a paleta tirada das
    cores medidas nesse logotipo. Quando chegar o vetor oficial, trocar só o
    componente `Simbolo`.
-6. **RQE 39585** (possível registro adicional em Clínica Médica) — não incluído
-   por falta de confirmação oficial, conforme a própria copy pede.
+
+Resolvidas em set/2026: RQE 39585 (Clínica Médica) confirmado; depoimentos
+publicados na home (nome + inicial do sobrenome, sem o nome completo do
+paciente).
 
 ## Decisões de design
 

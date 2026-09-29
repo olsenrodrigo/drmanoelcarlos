@@ -72,7 +72,7 @@ export const origem = site.origin;
 export const llmsTxt = [
   `# ${site.name}`,
   "",
-  "> Consultório de oncologia clínica em São Paulo/SP. Diagnóstico, definição de",
+  "> Oncologia clínica em São Paulo/SP. Diagnóstico, definição de",
   "> tratamento, segunda opinião e acompanhamento contínuo do paciente oncológico.",
   `> Médico responsável: ${site.doctorFull} — ${site.registro}.`,
   "",
@@ -96,10 +96,12 @@ export const llmsTxt = [
   "",
   "## Locais de atendimento",
   "",
-  `- Consultório particular em ${site.address.city}/${site.address.state} — ${site.hours}`,
-  ...site.hospitais.map(
-    (h) => `- ${h.nome}${h.bairro ? ` (${h.bairro}, São Paulo/SP)` : ""} — atendimento por convênio`,
+  ...site.hospitais.map((h) =>
+    h.rua
+      ? `- ${h.nome} — ${h.rua}, ${h.bairro}, ${site.cidade}/${site.estado}, CEP ${h.cep}. Agendamento: ${h.telefone}`
+      : `- ${h.nome} — ${h.bairro}, ${site.cidade}/${site.estado}. Agendamento: WhatsApp ${site.whatsappDisplay}`,
   ),
+  `- ${site.whatsappRotulo}: WhatsApp ${site.whatsappDisplay}`,
   "",
   "## Páginas",
   "",
@@ -137,12 +139,9 @@ export const llmsTxt = [
   })(),
   "## Observações",
   "",
-  "- O consultório particular atende somente em regime particular; o atendimento por",
-  "  convênio acontece nos hospitais parceiros.",
+  "- O atendimento por convênio acontece nos hospitais parceiros.",
   "- Não há teleconsulta: todo o atendimento é presencial.",
   "- A primeira consulta dura cerca de 1 hora; os retornos, cerca de 30 minutos.",
-  "- Existe pacote opcional de acompanhamento contínuo, com consultas semanais e",
-  "  telefone disponível 24h; o valor mensal é combinado individualmente.",
   "- Este site é informativo e não substitui consulta médica; nenhuma conduta é",
   "  indicada sem avaliação presencial.",
   `- Cidades atendidas: ${cidadesAtendidas.join(", ")}.`,

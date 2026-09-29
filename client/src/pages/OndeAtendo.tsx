@@ -23,53 +23,34 @@ export default function OndeAtendo() {
       </TopoPagina>
 
       <section className="secao fundo-areia">
-        <div className="wrap-estreito conteudo-longo">
+        <div className="wrap">
           <Surge>
             <p className="chamada">{consultorio.abertura}</p>
+            <p className="sobrelinha" style={{ marginTop: 40 }}>
+              {consultorio.hospitalar.titulo}
+            </p>
+            <h2 style={{ marginBottom: 12 }}>Endereços e agendamento</h2>
+            <p style={{ marginBottom: 40 }}>{consultorio.hospitalar.texto}</p>
           </Surge>
-
-          <Surge className="secao-geo">
-            <div>
-              <h2>{consultorio.particular.titulo}</h2>
-              <p>{consultorio.particular.texto}</p>
-              {/* O endereço veio como "[a definir]" na copy; enquanto não for
-                  confirmado, o site diz isso em vez de mostrar um endereço
-                  antigo de diretório médico. Ver `site.enderecoConfirmado`. */}
-              {site.enderecoConfirmado ? (
-                <p>
-                  <strong>Endereço:</strong> {site.address.street} — {site.address.district},{" "}
-                  {site.address.city}/{site.address.state}
-                </p>
-              ) : (
-                <p>{consultorio.particular.enderecoPendente}</p>
-              )}
-              <p style={{ marginTop: "1.4em" }}>
-                <a className="link-seta" href={agendarUrl()} target="_blank" rel="noreferrer">
-                  <IconeWhatsapp width={16} /> Agendar pelo WhatsApp {site.whatsappDisplay}
-                </a>
-              </p>
-            </div>
-          </Surge>
-
-          <Surge className="secao-geo">
-            <div>
-              <h2>{consultorio.hospitalar.titulo}</h2>
-              <p>{consultorio.hospitalar.texto}</p>
-            </div>
-          </Surge>
+          <ListaHospitais />
         </div>
       </section>
 
       <section className="secao fundo-branco">
-        <div className="wrap">
+        <div className="wrap-estreito">
           <Surge>
-            <p className="sobrelinha">Hospitais parceiros</p>
-            <h2 style={{ marginBottom: 44 }}>Onde o atendimento por convênio acontece</h2>
+            <div className="bloco-destaque">
+              <h3>{consultorio.demais.titulo}</h3>
+              <p>{consultorio.demais.texto}</p>
+              <p style={{ marginTop: "1em" }}>
+                <a className="link-seta" href={agendarUrl()} target="_blank" rel="noreferrer">
+                  <IconeWhatsapp width={16} /> {site.whatsappDisplay}
+                </a>
+              </p>
+            </div>
           </Surge>
-          <ListaHospitais />
-
           <Surge>
-            <div className="bloco-destaque" style={{ marginTop: 44 }}>
+            <div className="bloco-destaque" style={{ marginTop: 24 }}>
               <h3>{consultorio.presencial.titulo}</h3>
               <p>{consultorio.presencial.texto}</p>
             </div>
@@ -106,7 +87,7 @@ export default function OndeAtendo() {
 
       <CtaFinal
         titulo={consultorio.ctaFinal}
-        texto="Diga qual porta de atendimento faz mais sentido para você — consultório particular ou hospital parceiro — e a agenda é combinada pelo WhatsApp."
+        texto="Ligue para o hospital de sua preferência ou fale pelo WhatsApp de demais agendamentos — ajudamos a indicar a unidade que faz mais sentido para você."
         contexto="quero saber onde e quando posso ser atendido"
       />
     </Pagina>

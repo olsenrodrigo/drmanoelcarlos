@@ -103,6 +103,12 @@ export const IconeLocal = (p: P) => (
 
 export const IconeRelogio = IconeTempo;
 
+export const IconeTelefone = (p: P) => (
+  <svg {...base} {...p}>
+    <path d="M5 4h3.5l1.8 4.4-2.3 1.4a11 11 0 0 0 6.2 6.2l1.4-2.3L20 15.5V19a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z" />
+  </svg>
+);
+
 export const IconeEmail = (p: P) => (
   <svg {...base} {...p}>
     <rect x="3" y="5" width="18" height="14" rx="2" />

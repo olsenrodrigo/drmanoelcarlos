@@ -91,53 +91,30 @@ const ID_SITE = `${site.origin}/#site`;
  * quem revisou e quando. Atualizar sempre que o Dr. Manoel revisar os textos;
  * uma data velha aqui é pior que nenhuma, então não deixar apodrecer.
  */
-const DATA_REVISAO = "2026-08-25";
+const DATA_REVISAO = "2026-09-29";
 
 /**
- * Endereço: só a cidade, enquanto o endereço do consultório não for confirmado
- * (ver `site.enderecoConfirmado`). Declarar rua vazia ou CEP inventado em
- * `PostalAddress` é pior que omitir — o Google cruza esse dado com o Perfil da
- * Empresa e com os diretórios médicos, e a divergência derruba SEO local.
- * TODO: ao confirmar, preencher streetAddress/postalCode aqui e acrescentar o
- * nó `geo` com as coordenadas do pin do Perfil da Empresa no Google.
+ * Endereço: só a cidade. O consultório particular não é divulgado no site
+ * (decisão do cliente, set/2026) — nem endereço, nem horário, nem valor. Os
+ * endereços completos declarados são os dos hospitais, logo abaixo.
  */
 const enderecoPostal = {
   "@type": "PostalAddress",
-  ...(site.enderecoConfirmado
-    ? {
-        streetAddress: site.address.street,
-        postalCode: site.address.zip,
-      }
-    : {}),
-  addressLocality: site.address.city,
-  addressRegion: site.address.state,
+  addressLocality: site.cidade,
+  addressRegion: site.estado,
   addressCountry: "BR",
 };
 
-/** Consultório particular: dois turnos fixos por semana. */
-const horarios = [
-  {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: "Tuesday",
-    opens: "19:00",
-    closes: "21:00",
-  },
-  {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: "Friday",
-    opens: "13:00",
-    closes: "17:00",
-  },
-];
-
-/** Hospitais onde há atendimento por convênio, como entidades próprias. */
+/** Hospitais onde o Dr. Manoel atende, como entidades próprias, com endereço e telefone. */
 const hospitais = site.hospitais.map((h) => ({
   "@type": "Hospital",
   name: h.nome,
+  ...(h.telefone ? { telephone: `+55 ${h.telefone}` } : {}),
   address: {
     "@type": "PostalAddress",
-    ...(h.bairro ? { addressLocality: `${h.bairro}, São Paulo` } : { addressLocality: "São Paulo" }),
-    addressRegion: "SP",
+    ...(h.rua ? { streetAddress: h.rua, postalCode: h.cep } : {}),
+    addressLocality: `${h.bairro}, ${site.cidade}`,
+    addressRegion: site.estado,
     addressCountry: "BR",
   },
 }));
@@ -173,7 +150,12 @@ export const pessoaSchema = {
   medicalSpecialty: "https://schema.org/Oncologic",
   identifier: [
     { "@type": "PropertyValue", propertyID: "CRM", value: "CRM-SP 139.361" },
-    { "@type": "PropertyValue", propertyID: "RQE", value: "RQE 103468" },
+    ...site.rqes.map((r) => ({
+      "@type": "PropertyValue",
+      propertyID: "RQE",
+      name: r.area,
+      value: `RQE ${r.numero}`,
+    })),
   ],
   url: site.origin,
   image: `${site.origin}/opengraph.jpg`,
@@ -208,7 +190,7 @@ export const consultorioSchema = {
   name: site.name,
   alternateName: variantesDeMarca,
   description:
-    "Consultório de oncologia clínica em São Paulo/SP. Diagnóstico, definição de tratamento sistêmico, segunda opinião e acompanhamento contínuo do paciente oncológico, com o Dr. Manoel Carlos (CRM-SP 139.361, RQE 103468).",
+    "Oncologia clínica em São Paulo/SP. Diagnóstico, definição de tratamento sistêmico, segunda opinião e acompanhamento contínuo do paciente oncológico, com o Dr. Manoel Carlos (CRM-SP 139.361, RQE 39585 e 103468), nos hospitais Nove de Julho, Samaritano Higienópolis, Leforte Liberdade e Emunah.",
   url: site.origin,
   image: `${site.origin}/opengraph.jpg`,
   logo: `${site.origin}/favicon.png`,
@@ -242,13 +224,11 @@ export const consultorioSchema = {
       "@type": "MedicalProcedure",
       name: "Acompanhamento oncológico contínuo",
       description:
-        "Pacote com consultas semanais e telefone disponível 24h para pacientes que precisam de suporte mais próximo durante o tratamento.",
+        "Acompanhamento durante e depois do tratamento, com retornos regulares para monitorar a evolução e ajustar a conduta.",
       url: urlDaRota("/como-eu-cuido"),
     },
   ],
-  openingHoursSpecification: horarios,
-  paymentAccepted: "Particular (consultório); convênio nos hospitais parceiros",
-  currenciesAccepted: "BRL",
+  location: hospitais,
   isAcceptingNewPatients: true,
   sameAs: [site.social.facebook, site.social.instagram, site.social.linkedin].filter(Boolean),
 };

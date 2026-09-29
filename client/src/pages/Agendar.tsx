@@ -36,16 +36,15 @@ export default function Agendar() {
               </a>
             </p>
             <p style={{ marginTop: 26, fontSize: ".92rem" }}>
-              Consultório particular: {site.hours}. Atendimento por convênio nos hospitais
-              parceiros, em horário comercial. Não há teleconsulta.
+              Não há teleconsulta: todo o atendimento é presencial.
             </p>
           </Surge>
         </div>
       </section>
 
       <SecaoContato
-        titulo="Prefere deixar seus dados?"
-        texto="Preencha o formulário e a conversa abre no WhatsApp já com as suas informações."
+        titulo="Agende direto com o hospital ou deixe seus dados"
+        texto="Ligue para a unidade de sua preferência ou preencha o formulário — a conversa abre no WhatsApp já com as suas informações."
         origem="agendar consulta"
         fundo="fundo-branco"
       />

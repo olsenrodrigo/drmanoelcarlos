@@ -9,13 +9,13 @@ import {
   IconeEstetoscopio,
   IconeHospital,
   IconeLocal,
-  IconeRelogio,
   IconeSeta,
+  IconeTelefone,
   IconeWhatsapp,
   iconesCuidado,
   iconesMotivo,
 } from "@/components/Icones";
-import { agendarUrl, site, whatsappUrl } from "@/content/site";
+import { agendarUrl, mapsUrl, site, telUrl, whatsappUrl } from "@/content/site";
 import { home } from "@/content/pages";
 
 /* ------------------------------------------------------------- animação -- */
@@ -187,14 +187,47 @@ export function Etapas({
 
 /* ------------------------------------------------------------- hospitais -- */
 
+/**
+ * Um cartão por hospital, com endereço e telefone de agendamento. Hospital sem
+ * telefone próprio (o Emunah, por ora) aponta para o WhatsApp de demais
+ * agendamentos em vez de ficar sem contato.
+ */
 export function ListaHospitais() {
   return (
     <div className={`grade-cartoes${site.hospitais.length === 4 ? " quatro" : ""}`}>
       {site.hospitais.map((hospital) => (
-        <article className="cartao" key={hospital.nome}>
+        <article className="cartao cartao-hospital" key={hospital.nome}>
           <IconeHospital className="icone" />
           <h3>{hospital.nome}</h3>
-          <p>{hospital.bairro ? `${hospital.bairro} — São Paulo/SP` : "São Paulo/SP"}</p>
+          <address>
+            {hospital.rua ? (
+              <a href={mapsUrl(hospital)} target="_blank" rel="noreferrer">
+                {hospital.rua}
+                <br />
+                {hospital.bairro} — {site.cidade}/{site.estado}
+                <br />
+                CEP {hospital.cep}
+              </a>
+            ) : (
+              <>
+                {hospital.bairro} — {site.cidade}/{site.estado}
+              </>
+            )}
+          </address>
+          {hospital.telefone ? (
+            <a className="link-seta" href={telUrl(hospital.telefone)}>
+              <IconeTelefone width={16} /> {hospital.telefone}
+            </a>
+          ) : (
+            <a
+              className="link-seta"
+              href={agendarUrl(`quero agendar no ${hospital.nome}`)}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <IconeWhatsapp width={16} /> {site.whatsappDisplay}
+            </a>
+          )}
         </article>
       ))}
     </div>
@@ -275,7 +308,7 @@ export function Depoimentos() {
   return (
     <section className="secao fundo-areia">
       <div className="wrap">
-        <p className="sobrelinha">Prova social</p>
+        <p className="sobrelinha">Depoimentos</p>
         <h2>{home.provaSocial.titulo}</h2>
         <p className="chamada" style={{ marginBottom: 40 }}>
           {home.provaSocial.texto}
@@ -307,7 +340,7 @@ export function DadosContato() {
       <div className="dado">
         <IconeWhatsapp />
         <div>
-          <strong>WhatsApp</strong>
+          <strong>WhatsApp — {site.whatsappRotulo.toLowerCase()}</strong>
           <p>
             <a href={agendarUrl()} target="_blank" rel="noreferrer">
               {site.whatsappDisplay}
@@ -324,36 +357,32 @@ export function DadosContato() {
           </p>
         </div>
       </div>
-      <div className="dado">
-        <IconeRelogio />
-        <div>
-          <strong>Consultório particular</strong>
-          <p>{site.hours}</p>
-        </div>
-      </div>
+      {site.hospitais
+        .filter((h) => h.telefone)
+        .map((h) => (
+          <div className="dado" key={h.nome}>
+            <IconeHospital />
+            <div>
+              <strong>{h.nome}</strong>
+              <p>
+                <a href={telUrl(h.telefone)}>{h.telefone}</a>
+                <br />
+                {h.rua} — {h.bairro}
+              </p>
+            </div>
+          </div>
+        ))}
       <div className="dado">
         <IconeLocal />
         <div>
-          <strong>Onde fica</strong>
-          {site.enderecoConfirmado ? (
-            <p>
-              {site.address.street}
-              <br />
-              {site.address.district} — {site.address.city}/{site.address.state}
-            </p>
-          ) : (
-            <p>
-              Consultório em {site.address.city}/{site.address.state}. O endereço completo e a
-              orientação de como chegar são enviados no agendamento.
-            </p>
-          )}
-        </div>
-      </div>
-      <div className="dado">
-        <IconeHospital />
-        <div>
-          <strong>Convênio</strong>
-          <p>{site.hospitais.map((h) => h.nome).join(" · ")}</p>
+          <strong>Outras unidades</strong>
+          <p>
+            {site.hospitais
+              .filter((h) => !h.telefone)
+              .map((h) => `${h.nome} (${h.bairro})`)
+              .join(" · ")}{" "}
+            — agendamento pelo WhatsApp {site.whatsappDisplay}
+          </p>
         </div>
       </div>
       <div className="dado">

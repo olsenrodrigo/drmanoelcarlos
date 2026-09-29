@@ -142,7 +142,6 @@ export const alvosPorRota: AlvoDaRota[] = [
       "oncologista Hospital Leforte Liberdade",
       "oncologista Hospital Samaritano Higienópolis",
       "oncologista Hospital Emunah",
-      "consultório oncologia São Paulo",
       "oncologista convênio São Paulo",
     ],
   },
@@ -162,7 +161,6 @@ export const alvosPorRota: AlvoDaRota[] = [
     secundarias: [
       "oncologista São Paulo SP",
       "oncologista perto de mim São Paulo",
-      "oncologista particular São Paulo",
       "tratamento de câncer em São Paulo",
       "clínica oncológica São Paulo",
       ...termosRegionais,

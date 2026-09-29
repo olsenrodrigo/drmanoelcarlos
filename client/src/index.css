@@ -224,6 +224,8 @@ a.cartao:hover { background: var(--petroleo-50); }
 .cartao h3 { margin: 0; }
 .cartao p { margin: 0; font-size: .95rem; flex: 1; }
 .cartao .link-seta { margin-top: 2px; }
+.cartao-hospital address { font-style: normal; font-size: .95rem; line-height: 1.55; flex: 1; }
+.cartao-hospital address a:hover { color: var(--petroleo-600); text-decoration: underline; text-underline-offset: 3px; }
 
 .lista-marcada { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; }
 .lista-marcada li { display: flex; align-items: flex-start; gap: 13px; color: var(--tinta-suave); }
@@ -313,7 +315,7 @@ a.cartao:hover { background: var(--petroleo-50); }
 
 /* ------------------------------------------------------------ depoimentos */
 .depoimentos-vazio { padding: 32px; border: 1px dashed var(--linha-forte); text-align: center; }
-.grade-depoimentos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.grade-depoimentos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
 .card-depoimento { padding: 30px; background: var(--branco); border: 1px solid var(--linha); }
 .card-depoimento p { font-family: var(--serif); font-size: 1.16rem; line-height: 1.5; color: var(--petroleo-800); }
 .card-depoimento cite { display: block; margin-top: 16px; font-style: normal; font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--petroleo-600); }

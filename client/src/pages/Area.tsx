@@ -38,7 +38,7 @@ export default function PaginaArea({ dados }: { dados: Area }) {
         <div className="wrap">
           <Surge>
             <p className="sobrelinha">Onde o atendimento acontece</p>
-            <h2 style={{ marginBottom: 44 }}>Consultório particular e hospitais parceiros</h2>
+            <h2 style={{ marginBottom: 44 }}>Hospitais onde atendo</h2>
           </Surge>
           <ListaHospitais />
         </div>
